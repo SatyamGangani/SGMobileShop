@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/bootstrap-5.2.0-beta1-dist/js/bootstrap.min.js"> -->
+    <script src="assets/bootstrap-5.2.0-beta1-dist/js/bootstrap.min.js"></script>
+    <script src="assets/jquery.min.js"></script>
+    <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts_ubuntu/Ubuntu-Regular.ttf">
+    <link rel="icon" href="static/sgwebicon.jpg">
+    <title>Products</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light justify-content-end" style="background-color: rgb(220, 249, 239); font-family: 'Ubuntu', sans-serif;font-size: large;">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+          <div class="container-fluid text-center">
+            <a class="navbar-brand mx-auto" href="index.html"><img src="static/sgwebicon.jpg" class="rounded rounded-circle" alt="" width="80px"></a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item  mx-auto">
+                  <a class="nav-link active" aria-current="page" href="products.html?dataType=mobile">Mobile</a>
+                </li>
+                <li class="nav-item  mx-auto">
+                    <a class="nav-link" href="products.html?dataType=tablet">Tablet And iPad</a>
+                </li>
+                <li class="nav-item  mx-auto">
+                  <a class="nav-link" href="products.html?dataType=accessory">Accessories</a>
+                </li>
+                <li class="nav-item  mx-auto">
+                  <a class="nav-link" href="products.html">Explore Products</a>
+                </li>
+              </ul>
+              
+              <i class="fa fa-user-circle text-center" style="font-size:36px"></i>
+              <i class="fa fa-shopping-cart ms-4 text-center" style="font-size:36px"></i>
+            </div>
+          </div>
+        </nav>
+    
+    <div class="container mt-4">
+        <h1 id="categName"></h1>
+        <section style="background-color: #eee;">
+            <div class="container py-5">
+                <div class="row" id="product"></div>
+            </div>
+          </section>
+    </div>
+    
+</body>
+<script>
+    if(window.XMLHttpRequest){
+        xmlhttp=new XMLHttpRequest();
+    }
+    else{
+        xmlhttp=new ActiveXObject();
+    }
+    xmlhttp.open('GET','productsMobiles.xml',false)
+    xmlhttp.send();
+    xmlDoc = xmlhttp.responseXML;
+    productDiv=document.getElementById('product');
+    urlStr = window.location.search;
+    urlParam = new URLSearchParams(urlStr);
+    productCategory = urlParam.get('dataType');
+   
+    // alert(xmlDoc)
+    // tab = xmlDoc.getElementsByTagName('tablet');
+    // startTabVal=parseInt(tab[0].childNodes[1].childNodes[0].nodeValue)
+    // endTabVal=parseInt(tab[0].childNodes[1].childNodes[0].nodeValue) + tab.length
+    
+    x= productCategory==null?'All Products':productCategory;
+    document.getElementById('categName').innerHTML= productCategory==null?'All Products': productCategory[0].toUpperCase()+productCategory.slice(1,);
+    if(productCategory!=null){
+        for(i=0;i<xmlDoc.getElementsByTagName('product').length;i++){
+            if(xmlDoc.getElementsByTagName('category')[i].childNodes[0].nodeValue==productCategory || xmlDoc.getElementsByTagName('brand')[i].childNodes[0].nodeValue==productCategory){
+                productDiv.innerHTML+= addprod(i)
+            }
+        }}
+        else{
+            for(i=0;i<xmlDoc.getElementsByTagName('product').length;i++){
+                productDiv.innerHTML+= addprod(i);
+            }   
+        }
+        function addprod(i){
+            return `<div class="col-md-12 col-lg-4 mb-4 mb-lg-0 mt-2">
+                <div class="card">
+                    <div class="d-flex justify-content-between p-3">
+                        </div>
+                        <img src="static/${xmlDoc.getElementsByTagName('image')[i].childNodes[0].nodeValue}" class="card-img-top mx-auto" alt="Laptop" style="max-width: 250px;aspect-ratio:3/3;object-fit:contain" />
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <p class="small"><a href="#!" class="text-muted">${xmlDoc.getElementsByTagName('brand')[i].childNodes[0].nodeValue}</a></p>
+                                <p class="small text-danger"><s>Rs.${xmlDoc.getElementsByTagName('mrp')[i].childNodes[0].nodeValue}</s></p>
+                                </div>
+                                <div class="d-flex justify-content-between mb-3">
+                                    <h5 class="mb-0">${xmlDoc.getElementsByTagName('name')[i].childNodes[0].nodeValue}</h5>
+                                    <h5 class="text-dark mb-0">Rs. ${xmlDoc.getElementsByTagName('offerprice')[i].childNodes[0].nodeValue}</h5>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <p class="text-muted mb-0">Available: <span class="fw-bold">${xmlDoc.getElementsByTagName('qty')[i].childNodes[0].nodeValue}</span></p>
+                                        <div class="ms-auto text-warning">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>`;
+                                        }
+                                        $(document).ready(function(){
+                                            $('body').hide().fadeIn();
+                                        })
+        if(productDiv.innerHTML==''){
+            productDiv.innerHTML=`<h2 class='text-center text-danger'><i class="fa fa-frown-o" aria-hidden="true"></i> Sorry, No Products Available.....</h2>`
+        }
+    </script>
+</html>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<products>
+    <product>
+        <id>1</id>
+        <category>mobile</category>
+        <brand>Apple</brand>
+        <name>iPhone 13</name>
+        <mrp>96,000</mrp>
+        <offerprice>46,130</offerprice>
+        <image>iphone13.jpg</image>
+        <qty>10</qty>
+    </product>
+    <product>
+        <id>2</id>
+        <category>mobile</category>
+        <brand>Apple</brand>
+        <name>iPhone 14 Pro Max</name>
+        <mrp>1,76,000</mrp>
+        <offerprice>96,130</offerprice>
+        <image>iPhone14ProMax.webp</image>
+        <qty>10</qty>
+    </product>
+    <product>
+        <id>2</id>
+        <category>mobile</category>
+        <brand>Apple</brand>
+        <name>iPhone 14 Plus</name>
+        <mrp>1,36,000</mrp>
+        <offerprice>86,130</offerprice>
+        <image>iPhone14plus.webp</image>
+        <qty>10</qty>
+    </product>
+    <product>
+        <id>2</id>
+        <category>mobile</category>
+        <brand>Apple</brand>
+        <name>iPhone 12</name>
+        <mrp>77,000</mrp>
+        <offerprice>69,130</offerprice>
+        <image>iphone12.webp</image>
+        <qty>10</qty>
+    </product>
+    <product>
+        <id>2</id>
+        <category>mobile</category>
+        <brand>Samsung</brand>
+        <name>Samsung S22 Ultra</name>
+        <mrp>1,46,000</mrp>
+        <offerprice>1,02,000</offerprice>
+        <image>samsungs22ultra.jpg</image>
+        <qty>10</qty>
+    </product>
+    <product>
+        <id>2</id>
+        <category>mobile</category>
+        <brand>Samsung</brand>
+        <name>Samsung S22</name>
+        <mrp>78,000</mrp>
+        <offerprice>56,000</offerprice>
+        <image>samsungs22.jpg</image>
+        <qty>10</qty>
+    </product>
+    <product>
+        <id>2</id>
+        <category>mobile</category>
+        <brand>Samsung</brand>
+        <name>Samsung Z Flip 3</name>
+        <mrp>98,000</mrp>
+        <offerprice>76,000</offerprice>
+        <image>samsungzflip3.avif</image>
+        <qty>10</qty>
+    </product>
+    <product>
+        <id>2</id>
+        <category>mobile</category>
+        <brand>Samsung</brand>
+        <name>Samsung Z Fold 3</name>
+        <mrp>1,78,000</mrp>
+        <offerprice>1,16,000</offerprice>
+        <image>samsungzfold3.avif</image>
+        <qty>10</qty>
+    </product>
+    <product>
+        <id>2</id>
+        <category>mobile</category>
+        <brand>OnePlus</brand>
+        <name>OnePlus Nord CE 2 Lite 5G</name>
+        <mrp>28,000</mrp>
+        <offerprice>20,000</offerprice>
+        <image>oneplusnordce2lite.webp</image>
+        <qty>10</qty>
+    </product>
+    <product>
+        <id>2</id>
+        <category>mobile</category>
+        <brand>OnePlus</brand>
+        <name>OnePlus 10t</name>
+        <mrp>68,000</mrp>
+        <offerprice>48,000</offerprice>
+        <image>oneplus10t.webp</image>
+        <qty>10</qty>
+    </product>
+    <product>
+        <id>2</id>
+        <category>mobile</category>
+        <brand>OnePlus</brand>
+        <name>OnePlus Nord 2t</name>
+        <mrp>58,000</mrp>
+        <offerprice>48,000</offerprice>
+        <image>oneplusnord2t.jpg</image>
+        <qty>10</qty>
+    </product>
+    <product>
+        <id>10</id>
+        <category>tablet</category>
+        <brand>Apple</brand>
+        <name>iPad Air 5th Gen</name>
+        <mrp>58,000</mrp>
+        <offerprice>48,000</offerprice>
+        <image>ipadair5gen.webp</image>
+        <qty>10</qty>
+    </product>
+    <product>
+        <id>11</id>
+        <category>tablet</category>
+        <brand>Apple</brand>
+        <name>iPad Pro 5th Gen</name>
+        <mrp>2,18,000</mrp>
+        <offerprice>2,08,000</offerprice>
+        <image>ipadpro5gen.webp</image>
+        <qty>10</qty>
+    </product>
+    <product>
+        <id>11</id>
+        <category>tablet</category>
+        <brand>Apple</brand>
+        <name>iPad Mini 6th Gen</name>
+        <mrp>48,000</mrp>
+        <offerprice>38,000</offerprice>
+        <image>ipadmini6gen.webp</image>
+        <qty>10</qty>
+    </product>
+    <product>
+        <id>11</id>
+        <category>tablet</category>
+        <brand>Samsung</brand>
+        <name>Galaxy Tab S7+ with Stylus</name>
+        <mrp>68,000</mrp>
+        <offerprice>48,000</offerprice>
+        <image>samsungtabs7+.webp</image>
+        <qty>10</qty>
+    </product>
+    <product>
+        <id>11</id>
+        <category>tablet</category>
+        <brand>MI</brand>
+        <name>Redmi Pad 4</name>
+        <mrp>38,000</mrp>
+        <offerprice>28,000</offerprice>
+        <image>xiomipad4.webp</image>
+        <qty>10</qty>
+    </product>
+    <product>
+        <id>2</id>
+        <category>accessory</category>
+        <brand>boat</brand>
+        <name>Boat Immortal 121 tws</name>
+        <mrp>2,000</mrp>
+        <offerprice>1,600</offerprice>
+        <image>boattws121.webp</image>
+        <qty>10</qty>
+    </product>
+    <product>
+        <id>2</id>
+        <category>accessory</category>
+        <brand>boat</brand>
+        <name>Boat 191G Airdopes tws</name>
+        <mrp>4,000</mrp>
+        <offerprice>2,600</offerprice>
+        <image>boat191.jpeg</image>
+        <qty>10</qty>
+    </product>
+</products>

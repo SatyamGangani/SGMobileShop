@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/bootstrap-5.2.0-beta1-dist/js/bootstrap.min.js"> -->
+    <script src="assets/bootstrap-5.2.0-beta1-dist/js/bootstrap.min.js"></script>
+    <script src="assets/jquery.min.js"></script>
+    <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts_ubuntu/Ubuntu-Regular.ttf">
+    <link rel="icon" href="static/sgwebicon.jpg">
+    <title>SG Mobile</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light justify-content-end" style="background-color: rgb(220, 249, 239); font-family: 'Ubuntu', sans-serif;font-size: large;">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="container-fluid text-center">
+          <a class="navbar-brand mx-auto" href="#"><img src="static/sgwebicon.jpg" class="rounded rounded-circle"alt="" width="80px"></a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item  mx-auto">
+                <a class="nav-link active" aria-current="page" href="products.html?dataType=mobile">Mobile</a>
+              </li>
+              <li class="nav-item  mx-auto">
+                <a class="nav-link" href="products.html?dataType=tablet">Tablet And iPad</a>
+              </li>
+              <li class="nav-item  mx-auto">
+                <a class="nav-link" href="products.html?dataType=accessory">Accessories</a>
+              </li>
+              <li class="nav-item  mx-auto">
+                <a class="nav-link" href="products.html">Explore Products</a>
+              </li>
+            </ul>
+            
+            <i class="fa fa-user-circle text-center" style="font-size:36px"></i>
+            <i class="fa fa-shopping-cart ms-4 text-center" style="font-size:36px"></i>
+          </div>
+        </div>
+      </nav>
+    <!-- <div class="container vw-100"> -->
+      <img src="static/banner.webp" class="vw-100" style="position: relative; display: grid; height: auto;" alt="">
+    <!-- </div> -->
+      <!-- Shop By Brand -->
+
+      <div class="container m-5 mx-auto">
+        <h2 class="text-center mb-3">Shop By Brands</h2>
+        <div class="row justify-content-center" id="brandDiv">
+          
+        </div>
+      </div>
+      
+    </body>
+    <script>
+      if(window.XMLHttpRequest){
+        xmlhttp=new XMLHttpRequest();
+      }
+  else{
+    xmlhttp=new ActiveXObject();
+  }
+  xmlhttp.open('GET','productCategories.xml',false)
+  xmlhttp.send();
+  brandDiv = document.getElementById('brandDiv');
+  xmlDoc=xmlhttp.responseXML;
+  for(i=0;i<xmlDoc.getElementsByTagName("phoneCompany").length;i++){
+    brandDiv.innerHTML+=`<div class="col-lg-2 col-md-3 col-6 border border-2 p-3 m-2 rounded rounded-2" >
+      <a href="products.html?dataType=${xmlDoc.getElementsByTagName("name")[i].childNodes[0].nodeValue}">
+      <img src="static/${xmlDoc.getElementsByTagName("Brandlogo")[i].childNodes[0].nodeValue}" alt="" class='d-block m-auto' style="height: auto;max-width: 100%;" >
+    </div>`
+
+  }
+  
+  // alert(xmlDoc.getElementsByTagName("name").length)
+  $(document).ready(function(){
+    // $('#iphone').mouseenter(function(){
+      //   $('img').css('width','180px');
+      // })
+      // $('#iphone').mouseleave(function(){
+        //   $('img').css('width','150px');
+        // })
+        $('body').hide().fadeIn('slow');
+      });
+      
+      </script>
+</html>
