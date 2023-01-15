@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/bootstrap-5.2.0-beta1-dist/js/bootstrap.min.js"> -->
+    <script src="assets/bootstrap-5.2.0-beta1-dist/js/bootstrap.min.js"></script>
+    <script src="assets/jquery.min.js"></script>
+    <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts_ubuntu/Ubuntu-Regular.ttf">
+    <link rel="icon" href="static/sgwebicon.jpg">
+    <title>SG Mobile</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light justify-content-end" style="background-color: rgb(220, 249, 239); font-family: 'Ubuntu', sans-serif;font-size: large;">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="container-fluid text-center">
+          <a class="navbar-brand mx-auto" href="index.html"><img src="static/sgwebicon.jpg" class="rounded rounded-circle"alt="" width="80px"></a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item  mx-auto">
+                <a class="nav-link active" aria-current="page" href="products.html?dataType=mobile">Mobile</a>
+              </li>
+              <li class="nav-item  mx-auto">
+                <a class="nav-link" href="products.html?dataType=tablet">Tablet And iPad</a>
+              </li>
+              <li class="nav-item  mx-auto">
+                <a class="nav-link" href="products.html?dataType=accessory">Accessories</a>
+              </li>
+              <li class="nav-item  mx-auto">
+                <a class="nav-link" href="products.html">Explore Products</a>
+              </li>
+            </ul>
+            
+            <i class="fa fa-user-circle text-center" style="font-size:36px"></i>
+            <i class="fa fa-shopping-cart ms-4 text-center" style="font-size:36px"></i>
+          </div>
+        </div>
+      </nav>
+              <!-- Product section-->
+              <section class="py-5" id="productpreview">
+                <!-- <div class="container px-4 px-lg-5 my-5">
+                    <div class="row gx-4 gx-lg-5 align-items-center">
+                        <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0 d-block mx-auto" style="max-width: 400px;aspect-ratio: 3/3;object-fit: contain;" src="static/ipadmini6gen.webp" alt="Product Image" /></div>
+                        <div class="col-md-6">
+                            <div class="small mb-1">OnePlus</div>
+                            <h1 class="display-5 fw-bolder">Nord CE 2 Lite</h1>
+                            <div class="fs-5 mb-5">
+                                <span class="text-decoration-line-through">Rs. 28,000</span>
+                                <span>Rs. 18,000</span>
+                            </div>
+                            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
+                            <div class="d-flex">
+                                <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+                                <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                                    <i class="bi-cart-fill me-1"></i>
+                                    Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </section>    
+</body>
+<script>
+    if(window.XMLHttpRequest){
+        xmlhttp=new XMLHttpRequest();
+    }
+    else{
+        xmlhttp=new ActiveXObject();
+    }
+    xmlhttp.open('GET','productsMobiles.xml',false)
+    xmlhttp.send();
+    xmlDoc = xmlhttp.responseXML;
+    productDiv=document.getElementById('product');
+    urlStr = window.location.search;
+    urlParam = new URLSearchParams(urlStr);
+    productId = urlParam.get('dataType');
+    productDiv = document.getElementById('productpreview')
+    for(i=0;i<xmlDoc.getElementsByTagName('product').length;i++){
+        if(xmlDoc.getElementsByTagName('id')[i].childNodes[0].nodeValue==productId){
+            productDiv.innerHTML=`
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0 d-block mx-auto" style="max-width: 400px;aspect-ratio: 3/3;object-fit: contain;" src="static/${xmlDoc.getElementsByTagName('image')[i].childNodes[0].nodeValue}" alt="Product Image" /></div>
+                <div class="col-md-6">
+                    <div class="small mb-1">${xmlDoc.getElementsByTagName('brand')[i].childNodes[0].nodeValue}</div>
+                    <h1 class="display-5 fw-bolder">${xmlDoc.getElementsByTagName('name')[i].childNodes[0].nodeValue}</h1>
+                    <div class="fs-5 mb-5">
+                        <span class="text-decoration-line-through">Rs. ${xmlDoc.getElementsByTagName('mrp')[i].childNodes[0].nodeValue}</span>
+                        <span>Rs. ${xmlDoc.getElementsByTagName('offerprice')[i].childNodes[0].nodeValue}</span>
+                        </div>
+                        <p class="lead">${xmlDoc.getElementsByTagName('description')[i].childNodes[0].nodeValue}</p>
+                        <div class="d-flex">
+                            <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                                <i class="bi-cart-fill me-1"></i>
+                                Add to cart
+                                </button>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                `
+                                break;
+                            }
+        }
+
+</script>
+</html>

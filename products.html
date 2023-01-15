@@ -100,7 +100,6 @@
                                     <h5 class="mb-0">${xmlDoc.getElementsByTagName('name')[i].childNodes[0].nodeValue}</h5>
                                     <h5 class="text-dark mb-0">Rs. ${xmlDoc.getElementsByTagName('offerprice')[i].childNodes[0].nodeValue}</h5>
                                     </div>
-                                    
                                     <div class="d-flex justify-content-between mb-2">
                                         <p class="text-muted mb-0">Available: <span class="fw-bold">${xmlDoc.getElementsByTagName('qty')[i].childNodes[0].nodeValue}</span></p>
                                         <div class="ms-auto text-warning">
@@ -109,8 +108,9 @@
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
-                                            </div>
-                                            </div>
+                                        </div>
+                                        </div>
+                                        <button class='btn btn-outline-dark d-block mx-auto'><a class='text-decoration-none text-danger' href=productPreview.html?dataType=${xmlDoc.getElementsByTagName('id')[i].childNodes[0].nodeValue} class='' >View Product</a></button>
                                             </div>
                                             </div>
                                             </div>`;
