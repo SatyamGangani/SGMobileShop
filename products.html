@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item  mx-auto">
-                  <a class="nav-link active" aria-current="page" href="products.html?dataType=mobile">Mobile</a>
+                  <a class="nav-link" aria-current="page" href="products.html?dataType=mobile">Mobile</a>
                 </li>
                 <li class="nav-item  mx-auto">
                     <a class="nav-link" href="products.html?dataType=tablet">Tablet And iPad</a>
@@ -31,8 +31,11 @@
                 <li class="nav-item  mx-auto">
                   <a class="nav-link" href="products.html?dataType=accessory">Accessories</a>
                 </li>
-                <li class="nav-item  mx-auto">
+                <li class="nav-item active mx-auto">
                   <a class="nav-link" href="products.html">Explore Products</a>
+                </li>
+                <li class="nav-item  mx-auto">
+                  <a class="nav-link" href="aboutus.html">About Us</a>
                 </li>
               </ul>
               
@@ -59,7 +62,7 @@
     else{
         xmlhttp=new ActiveXObject();
     }
-    xmlhttp.open('GET','productsMobiles.xml',false)
+    xmlhttp.open('GET','data/productsMobiles.xml',false)
     xmlhttp.send();
     xmlDoc = xmlhttp.responseXML;
     productDiv=document.getElementById('product');
