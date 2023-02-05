@@ -123,34 +123,28 @@
 </footer>
     </body>
     <script>
-      if(window.XMLHttpRequest){
-        xmlhttp=new XMLHttpRequest();
-      }
-  else{
-    xmlhttp=new ActiveXObject();
-  }
-  xmlhttp.open('GET','data/productBrands.xml',false)
-  xmlhttp.send();
-  brandDiv = document.getElementById('brandDiv');
-  xmlDoc=xmlhttp.responseXML;
-  for(i=0;i<xmlDoc.getElementsByTagName("phoneCompany").length;i++){
-    brandDiv.innerHTML+=`<div class="col-lg-2 col-md-3 col-6 border border-2 p-3 m-2 rounded rounded-2" >
-      <a href="products.html?dataType=${xmlDoc.getElementsByTagName("name")[i].childNodes[0].nodeValue}">
-      <img src="static/${xmlDoc.getElementsByTagName("Brandlogo")[i].childNodes[0].nodeValue}" alt="" class='d-block m-auto' style="height: auto;max-width: 100%;" >
-    </div>`
-
-  }
-  
-  // alert(xmlDoc.getElementsByTagName("name").length)
   $(document).ready(function(){
+    $.getJSON("data/productbrands.json", 
+        function (data) {
+          console.log(data.phoneCompany.length);
+          branddiv = document.getElementById('brandDiv')  
+          for(i=0;i<data.phoneCompany.length;i++){
+            console.log(data.phoneCompany[i]);
+          brandDiv.innerHTML+=`<div class="col-lg-2 col-md-3 col-6 border border-2 p-3 m-2 rounded rounded-2" >
+            <a href="products.html?dataType=${data.phoneCompany[i].name}">
+            <img src="static/${data.phoneCompany[i].Brandlogo}" alt="" class='d-block m-auto' style="height: 100px;max-width: 100%;object-fit:contain " >
+          </div>`
+          }})
+          $('body').hide().fadeIn('slow');
+        })
+        
     // $('#iphone').mouseenter(function(){
       //   $('img').css('width','180px');
       // })
       // $('#iphone').mouseleave(function(){
         //   $('img').css('width','150px');
         // })
-        $('body').hide().fadeIn('slow');
-      });
+      // });
       
       </script>
 </html>

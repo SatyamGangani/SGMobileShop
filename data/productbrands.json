@@ -1,0 +1,34 @@
+{
+    "phoneCompany": [
+      {
+        "id": 1,
+        "name": "Apple",
+        "Brandlogo": "applelogo.png"
+      },
+      {
+        "id": 2,
+        "name": "Samsung",
+        "Brandlogo": "samsunglogo.png"
+      },
+      {
+        "id": 3,
+        "name": "OnePlus",
+        "Brandlogo": "onepluslogo.png"
+      },
+      {
+        "id": 4,
+        "name": "MI",
+        "Brandlogo": "milogo.png"
+      },
+      {
+        "id": 5,
+        "name": "oppo",
+        "Brandlogo": "oppologo.png"
+      },
+      {
+        "id": 6,
+        "name": "boat",
+        "Brandlogo": "boat_logo.png"
+      }
+    ]
+  }
