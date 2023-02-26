@@ -50,22 +50,30 @@
 ">
         <h1 class="text-center" id="loginheader">Login</h3>
         <h1 class="text-center" id="signupheader">Sign Up</h3>
-        <form action="">
+        <form onsubmit="return submitForm()">
             <div class="form-floating m-3">
                 <input type="text" id="name" class="form-control" placeholder="Name">
                 <label for="name">Name</label>
-            </div>
-            <div class="form-floating m-3">
-                <input type="tel" id="phoneno" class="form-control" placeholder="Phone Number">
-                <label for="phoneno">Phone Number</label>
-            </div>
-            <div class="form-floating m-3">
+                <p id="validName" class="alert alert-danger d-none">Please enter name properly</p>
+              </div>
+              <div class="form-floating m-3">
+                <input type="tel" id="phoneNo" class="form-control" placeholder="Phone Number">
+                <label for="phoneNo">Phone Number</label>
+                <p id="validPhone" class="alert alert-danger d-none">Please enter valid phone number</p>
+              </div>
+              <div class="form-floating m-3">
                 <input type="email" id="email" class="form-control" placeholder="email">
                 <label for="email">Email</label>
-            </div>
-            <div class="form-floating m-3">
+                <p id="validEmail" class="alert alert-danger d-none">Please enter valid Email</p>
+              </div>
+              <div class="form-floating m-3">
                 <input type="password" id="password" class="form-control" placeholder="password">
                 <label for="password">Password</label>
+                <p id="validPassword" class="alert alert-danger d-none">Password must contain 6 letters,1 special character and 1 number</p>
+            </div>
+            <div class="text-center m-2">
+              <input type="submit" class="btn btn-outline-success" id="signupBtn" value="Signup">
+              <input type="submit" class="btn btn-outline-success" id="loginBtn" value="Log In">
             </div>
         </form>
         <p class="text-center" id="signupmsg">Don't have account? <a href="signin.html?activity=signup" class="text-decoration-none">Sign Up</a></p>
@@ -139,17 +147,72 @@
     urlParam = new URLSearchParams(urlstr);
     activity = urlParam.get('activity')
     if(activity=='signup'){
-        // console.log("hello");
         $('#signupmsg').hide()
         $('#loginheader').hide()
         $('#loginmsg').show()
-    }
-    else{
-        $('#phoneno').hide()
+        $('#loginBtn').hide()
+        $('#signupBtn').show()
+      }
+      else{
+        $('#phoneNo').hide()
         $('#name').hide()
         $('#signupheader').hide()
         $('#signupmsg').show()
         $('#loginmsg').hide()
-    }
-</script>
+        $('#loginBtn').show()
+        $('#signupBtn').hide()
+      }
+      function submitForm(event){
+        let name=$('#name').val();
+        let phoneNumber=$('#phoneNo').val();
+        let email=$('#email').val();
+        let password=$('#password').val();
+        let validRegexName = /^[a-zA-Z]/;
+        let validRegexEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        let validRegexPhone = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+        let validRegexPassword = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+        let flag = true;
+        //This PhoneNumberRegex allows:
+        //(123) 456-7890
+        // (123)456-7890
+        // 123-456-7890
+        // 123.456.7890
+        // 1234567890
+        // +31636363634
+        // 075-63546725
+
+        if(email.match(validRegexEmail)){
+            $('#validEmail').addClass('d-none');
+          }
+        else{
+          $('#validEmail').removeClass('d-none');
+          flag=false;
+        }
+        if(password.match(validRegexPassword)){
+            $('#validPassword').addClass('d-none');
+          }
+        else{
+          $('#validPassword').removeClass('d-none');
+          flag=false;
+        }
+        if(activity=='signup'){
+
+          if(name.match(validRegexName)){
+            $('#validName').addClass('d-none');
+          }
+          else{
+            $('#validName').removeClass('d-none');
+            flag=false;
+          }
+          if(phoneNumber.match(validRegexPhone)){
+            $('#validPhone').addClass('d-none');
+          }
+          else{
+            $('#validPhone').removeClass('d-none');
+            flag=false;
+          }
+        }
+        return flag;
+      }
+    </script>
 </html>
