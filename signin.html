@@ -50,9 +50,9 @@
 ">
         <h1 class="text-center" id="loginheader">Login</h3>
         <h1 class="text-center" id="signupheader">Sign Up</h3>
-        <form onsubmit="return submitForm()">
+        <form onsubmit="return submitForm()" id="loginForm" method="get" action="/welcome.html">
             <div class="form-floating m-3">
-                <input type="text" id="name" class="form-control" placeholder="Name">
+                <input type="text" id="name" name="name" class="form-control" placeholder="Name">
                 <label for="name">Name</label>
                 <p id="validName" class="alert alert-danger d-none">Please enter name properly</p>
               </div>
@@ -62,7 +62,7 @@
                 <p id="validPhone" class="alert alert-danger d-none">Please enter valid phone number</p>
               </div>
               <div class="form-floating m-3">
-                <input type="email" id="email" class="form-control" placeholder="email">
+                <input type="email" name="email" id="email" class="form-control" placeholder="email">
                 <label for="email">Email</label>
                 <p id="validEmail" class="alert alert-danger d-none">Please enter valid Email</p>
               </div>
@@ -209,7 +209,7 @@
           }
           else{
             $('#validPhone').removeClass('d-none');
-            flag=false;
+            flag=false; 
           }
         }
         return flag;
