@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="assets/bootstrap-5.2.0-beta1-dist/js/bootstrap.min.js"> -->
     <script src="assets/bootstrap-5.2.0-beta1-dist/js/bootstrap.min.js"></script>
     <script src="assets/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -131,11 +130,6 @@
     urlStr = window.location.search;
     urlParam = new URLSearchParams(urlStr);
     productCategory = urlParam.get('dataType');
-   
-    // alert(xmlDoc)
-    // tab = xmlDoc.getElementsByTagName('tablet');
-    // startTabVal=parseInt(tab[0].childNodes[1].childNodes[0].nodeValue)
-    // endTabVal=parseInt(tab[0].childNodes[1].childNodes[0].nodeValue) + tab.length
     
     x= productCategory==null?'All Products':productCategory;
     document.getElementById('categName').innerHTML= productCategory==null?'All Products': productCategory[0].toUpperCase()+productCategory.slice(1,);
